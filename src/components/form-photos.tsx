@@ -1,27 +1,37 @@
 "use client";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { dataSession } from "@/data/mini-session-data";
 import { useCounterStore } from "@/providers/counter-store-provider";
-
-// const FormSchema = z.object({
-//   photos: z
-//     .preprocess(
-//       (value) => Number(value),
-//       z.number().min(3, "Por favor seleccione al menos 3 fotos")
-//     ) // Convert the input to a number
-//     .refine((value) => !isNaN(value), "Please select the number of photos"), // Require the field to be defined
-// });
 
 interface InfoSessionProps {
   slug: string;
 }
 
 const FormPhotos = ({ slug }: InfoSessionProps) => {
-  const { count, incrementCount, decrementCount } = useCounterStore(
-    (state) => state
-  );
+  const {
+    count,    
+    incrementCount,
+    decrementCount,
+    updateTotalPricePhotos,
+  } = useCounterStore((state) => state);
+
   const sessionList = dataSession;
   const session = sessionList.find((session) => session.slug === slug);
+
+  const calculateTotalPrice = () => {
+    if (count >= session!.priceDiscountIfMoreThan) {
+      return count * session!.priceByPhotoIfMoreThan;
+    } else {
+      return count * session!.priceByPhoto;
+    }
+  };
+
+  useEffect(() => {
+    const newTotalPrice = calculateTotalPrice();
+    updateTotalPricePhotos(newTotalPrice);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
 
   return (
     <>
@@ -39,7 +49,7 @@ const FormPhotos = ({ slug }: InfoSessionProps) => {
             <div className="flex justify-between items-center">
               <Button
                 className="bg-red-500 hover:bg-red-700 text-white font-bold rounded-xl p-4 text-2xl"
-                onClick={() => decrementCount()}
+                onClick={() => count > 3 && decrementCount()}
               >
                 -
               </Button>
@@ -56,17 +66,12 @@ const FormPhotos = ({ slug }: InfoSessionProps) => {
               <span className="text-xl">
                 <strong>
                   $
-                  {count >= 11
-                    ? session?.priceByPhotoIfMoreThan
-                    : session?.priceByPhoto}
+                  {count >= session!.priceDiscountIfMoreThan
+                    ? session!.priceByPhotoIfMoreThan
+                    : session!.priceByPhoto}
                 </strong>
               </span>
             </p>
-          </div>
-          <div>
-            <Button className="w-full bg-red-500 hover:bg-red-700 text-white font-bold rounded-xl">
-              Agregar {count} al Carrito
-            </Button>
           </div>
         </div>
       </div>
@@ -75,3 +80,12 @@ const FormPhotos = ({ slug }: InfoSessionProps) => {
 };
 
 export default FormPhotos;
+
+// const FormSchema = z.object({
+//   photos: z
+//     .preprocess(
+//       (value) => Number(value),
+//       z.number().min(3, "Por favor seleccione al menos 3 fotos")
+//     ) // Convert the input to a number
+//     .refine((value) => !isNaN(value), "Please select the number of photos"), // Require the field to be defined
+// });

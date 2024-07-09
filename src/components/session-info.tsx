@@ -1,5 +1,3 @@
-import React from "react";
-import { Separator } from "@/components/ui/separator";
 import { dataSession } from "@/data/mini-session-data";
 
 interface InfoSessionProps {
@@ -19,7 +17,6 @@ const InfoSession = ({ slug }: InfoSessionProps) => {
         className="mb-4 text-description"
         dangerouslySetInnerHTML={{ __html: session?.description || "" }}
       />
-      <Separator />
     </>
   );
 };

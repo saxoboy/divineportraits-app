@@ -66,35 +66,47 @@ export const dataSession = [
   },
 ];
 
-export const albumData = [
+export interface AlbumData {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+}
+
+export interface CuadrosData {
+  id: number;
+  title: string;
+  price: number;
+}
+
+export const albumData: AlbumData[] = [
   {
     id: 1,
     title: "Album Pasta Dura 8x6 con 16 paginas",
+    description: "Requiere que tengas 15 a 20 fotos elegidas",
     price: 750,
   },
   {
     id: 2,
     title: "Album Pasta Dura 11x8 con 20 paginas",
+    description: "Requiere que tengas 20 a 25 fotos elegidas",
     price: 950,
   },
   {
     id: 3,
     title: "Album Tapa Acrilica 11x8 con 20 paginas",
+    description: "Requiere que tengas 20 a 25 fotos elegidas",
     price: 1400,
   },
   {
     id: 4,
     title: "Album Tapa Acrilica con Caja de lujo 10x10 con 20 paginas",
+    description: "Requiere que tengas 20 a 25 fotos elegidas",
     price: 1650,
-  },
-  {
-    id: 5,
-    title: "Album Tapa Acrilica con Caja de lujo 14x11 con 30 paginas",
-    price: 1900,
   },
 ];
 
-export const cuadrosData = [
+export const cuadrosData: CuadrosData[] = [
   {
     id: 1,
     title: "Acrilico o Metal 16x20",
