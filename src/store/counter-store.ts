@@ -2,6 +2,7 @@ import { createStore } from "zustand/vanilla";
 import {
   AlbumData,
   CuadrosData,
+  LocationSpecials,
   PropsSpecials,
   ScenariosData,
 } from "@/data/mini-session-data";
@@ -14,6 +15,7 @@ export type CounterState = {
   frame: CuadrosData;
   props: PropsSpecials[];
   scenarios: ScenariosData;
+  locations: LocationSpecials;
 };
 
 export type CounterActions = {
@@ -27,6 +29,7 @@ export type CounterActions = {
   addProp: (props: PropsSpecials) => void;
   removeProp: (props: PropsSpecials) => void;
   selectScenario: (scenario: ScenariosData) => void;
+  selectLocation: (location: LocationSpecials) => void;
 };
 
 export type CounterStore = CounterState & CounterActions;
@@ -53,10 +56,21 @@ export const defaultInitState: CounterState = {
     title: "",
     price: [
       {
+        id: 0,
         price: 0,
         description: "",
       },
     ],
+    available: [],
+  },
+  locations: {
+    id: 0,
+    title: "",
+    image: {
+      src: "",
+      alt: "",
+    },
+    price: 0,
     available: [],
   },
 };
@@ -70,6 +84,7 @@ export const initCounterStore = (): CounterState => {
     frame: defaultInitState.frame,
     props: defaultInitState.props,
     scenarios: defaultInitState.scenarios,
+    locations: defaultInitState.locations,
   };
 };
 
@@ -99,5 +114,7 @@ export const createCounterStore = (
       })),
     selectScenario: (scenario: ScenariosData) =>
       set((state) => ({ scenarios: scenario })),
+    selectLocation: (location: LocationSpecials) =>
+      set((state) => ({ locations: location })),
   }));
 };

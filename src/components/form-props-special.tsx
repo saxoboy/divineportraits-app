@@ -41,14 +41,19 @@ const FormPropsSpecials = ({ slug }: InfoSessionProps) => {
 
   return (
     <div className="mb-4">
-      <h2 className="text-2xl mb-4">Props Especiales</h2>
+      <h1 className="text-4xl mb-4 text-center">Props Especiales</h1>
       <p className="mb-4">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam excepturi
         asperiores ratione, laborum facere laudantium dolore expedita eum
         inventore doloribus quibusdam id dignissimos voluptates neque,
         necessitatibus totam ad rem reiciendis.
       </p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div className="flex justify-end">
+        <Button variant="secondary" onClick={() => incrementSteps()}>
+          Saltar este paso
+        </Button>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-4">
         {propsDataList.map((propsData) => {
           const isAvailable = propsData.available.includes(slug);
           return (
@@ -100,15 +105,6 @@ const FormPropsSpecials = ({ slug }: InfoSessionProps) => {
             </div>
           );
         })}
-        <div
-          className="w-full flex flex-col justify-center items-center bg-slate-700 shadow-md rounded-lg text-white text-xl hover:bg-slate-400 p-4 cursor-pointer text-center"
-          onClick={() => addProp(defaultInitState.props[0])}
-        >
-          <p className="mb-4 text-base">No preciso de Props Especiales</p>
-          <Button variant="secondary" onClick={() => incrementSteps()}>
-            Saltar este paso
-          </Button>
-        </div>
       </div>
     </div>
   );

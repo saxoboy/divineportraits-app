@@ -1,5 +1,3 @@
-import e from "express";
-
 export interface InfoSessionProps {
   slug: string;
 }
@@ -64,6 +62,10 @@ export interface ScenariosData {
 }
 export interface LocationSpecials {
   id: number;
+  image: {
+    src: string;
+    alt: string;
+  };
   title: string;
   price: number;
   available: string[];
@@ -332,6 +334,10 @@ export const scenariosData: ScenariosData[] = [
   {
     id: 3,
     title: "Rapunzel Theme Studio",
+    image: {
+      src: "/images/scenarios/prop-test.jpg",
+      alt: "Bridgerton or Marie Antoinette Style",
+    },
     price: [
       {
         id: 1,
@@ -349,6 +355,10 @@ export const scenariosData: ScenariosData[] = [
   {
     id: 4,
     title: "The Princess and The Frog Studio",
+    image: {
+      src: "/images/scenarios/prop-test.jpg",
+      alt: "Bridgerton or Marie Antoinette Style",
+    },
     price: [
       {
         id: 1,
@@ -366,6 +376,10 @@ export const scenariosData: ScenariosData[] = [
   {
     id: 5,
     title: "Enchanted Forest",
+    image: {
+      src: "/images/scenarios/prop-test.jpg",
+      alt: "Bridgerton or Marie Antoinette Style",
+    },
     price: [
       {
         id: 1,
@@ -405,36 +419,60 @@ export const locationSpecials: LocationSpecials[] = [
   {
     id: 1,
     title: "Kips Castle Park",
+    image: {
+      src: "/images/scenarios/prop-test.jpg",
+      alt: "Kips Castle Park",
+    },
     price: 350,
     available: ["location-session"],
   },
   {
     id: 2,
     title: "Skyland Manor & NJ Botanical Garden",
+    image: {
+      src: "/images/scenarios/prop-test.jpg",
+      alt: "Kips Castle Park",
+    },
     price: 650,
     available: ["location-session"],
   },
   {
     id: 3,
     title: "Rapunzel Tower",
+    image: {
+      src: "/images/scenarios/prop-test.jpg",
+      alt: "Kips Castle Park",
+    },
     price: 350,
     available: ["location-session"],
   },
   {
     id: 4,
     title: "The Princess and The Frog",
+    image: {
+      src: "/images/scenarios/prop-test.jpg",
+      alt: "Kips Castle Park",
+    },
     price: 350,
     available: ["location-session"],
   },
   {
     id: 5,
     title: "Farm and Lake (Included Horse Rental)",
+    image: {
+      src: "/images/scenarios/prop-test.jpg",
+      alt: "Kips Castle Park",
+    },
     price: 750,
     available: ["location-session"],
   },
   {
     id: 6,
     title: "Hamilton Garden",
+    image: {
+      src: "/images/scenarios/prop-test.jpg",
+      alt: "Kips Castle Park",
+    },
     price: 350,
     available: ["location-session"],
   },

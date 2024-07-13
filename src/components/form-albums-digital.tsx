@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import {
   AlbumData,
   albumData,
@@ -7,8 +8,10 @@ import { defaultInitState } from "@/store/counter-store";
 import { useCounterStore } from "@/providers/counter-store-provider";
 import { Button } from "./ui/button";
 import { toast } from "./ui/use-toast";
+import { ToastAction } from "./ui/toast";
 
 const FormsAlbumsDigital = ({ slug }: InfoSessionProps) => {
+  const router = useRouter();
   const { count, album, selectAlbum, incrementSteps } = useCounterStore(
     (state) => state
   );
@@ -35,20 +38,34 @@ const FormsAlbumsDigital = ({ slug }: InfoSessionProps) => {
       toast({
         variant: "destructive",
         title: "Album no disponible",
-        description: "Este album no esta disponible para esta sesion",
+        description:
+          "Este album solo está disponible para esta Full Session y Location Session",
+        action: (
+          <ToastAction
+            altText="Cambiar Session"
+            onClick={() => router.push("/")}
+          >
+            Cambiar Session
+          </ToastAction>
+        ),
       });
     }
   };
 
   return (
     <div>
-      <h1 className="text-2xl mb-4">Albums Digitales</h1>
+      <h1 className="text-4xl mb-4 text-center">Albums Digitales</h1>
       <p className="mb-4">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam excepturi
         asperiores ratione, laborum facere laudantium dolore expedita eum
         inventore doloribus quibusdam id dignissimos voluptates neque,
         necessitatibus totam ad rem reiciendis.
       </p>
+      <div className="flex justify-end">
+        <Button variant="secondary" onClick={() => incrementSteps()}>
+          Saltar este paso
+        </Button>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 my-8">
         {albumList.map((albumn) => (
           <div
@@ -75,10 +92,7 @@ const FormsAlbumsDigital = ({ slug }: InfoSessionProps) => {
           className="w-72 h-72 xl:w-64 xl:h-64 flex flex-col justify-center items-center bg-slate-700 shadow-md rounded-lg text-white text-xl hover:bg-slate-400 p-4 cursor-pointer text-center"
           onClick={() => selectAlbum(defaultInitState.album)}
         >
-          <p className="mb-4 text-base">No deseo album</p>
-          <Button variant="secondary" onClick={() => incrementSteps()}>
-            Saltar este paso
-          </Button>
+          <h3 className="font-semibold">No deseo album</h3>
         </div>
       </div>
     </div>

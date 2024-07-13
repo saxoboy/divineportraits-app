@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { dataSession } from "@/data/mini-session-data";
 import { useCounterStore } from "@/providers/counter-store-provider";
@@ -31,7 +32,30 @@ const FormPhotos = ({ slug }: InfoSessionProps) => {
 
   return (
     <>
-      <h2 className="text-2xl font-semibold my-4">Cuantas fotos deseas?</h2>
+      <h1 className="text-4xl mb-4 text-center">Cuantas fotos deseas?</h1>
+      <div className="flex gap-4 overflow-auto">
+        <Image
+          src="/images/photos/©PatriciaCarrozzini-91.jpg"
+          alt={session!.title}
+          width={250}
+          height={250}
+          className="mx-auto rounded-lg mb-4"
+        />
+        <Image
+          src="/images/photos/©PatriciaCarrozzini-381.jpg"
+          alt={session!.title}
+          width={250}
+          height={250}
+          className="mx-auto rounded-lg mb-4"
+        />
+        <Image
+          src="/images/photos/©PatriciaCarrozzini-390.jpg"
+          alt={session!.title}
+          width={250}
+          height={250}
+          className="mx-auto rounded-lg mb-4"
+        />
+      </div>
       <div className="flex flex-col my-4 gap-4">
         <p>
           Fotos que usted eligirá de la galeria y que seran retocados
@@ -39,11 +63,11 @@ const FormPhotos = ({ slug }: InfoSessionProps) => {
           impresiones personales.
         </p>
         <p>
-          El costo por foto es de ${session?.priceByPhoto}, si contrata{" "}
-          {session?.priceDiscountIfMoreThan} o más, el precio es de{" "}
-          {session?.priceByPhotoIfMoreThan}
+          El costo por foto es de <strong>${session?.priceByPhoto}</strong>, si
+          contrata <strong>{session?.priceDiscountIfMoreThan}</strong> o más, el
+          precio es de <strong>{session?.priceByPhotoIfMoreThan}</strong>
         </p>
-        <div className="mx-auto max-w-44 my-8">
+        <div className="mx-auto my-8">
           <div className="flex flex-col">
             <div className="flex justify-between items-center">
               <Button
@@ -52,7 +76,7 @@ const FormPhotos = ({ slug }: InfoSessionProps) => {
               >
                 -
               </Button>
-              <span className="mx-8 text-2xl w-8 text-center">{count}</span>
+              <span className="mx-12 text-9xl text-center w-[150px]">{count}</span>
               <Button
                 className="bg-red-500 hover:bg-red-700 text-white font-bold rounded-xl p-4 text-2xl"
                 onClick={() => incrementCount()}

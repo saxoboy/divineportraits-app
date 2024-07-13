@@ -1,4 +1,5 @@
 "use client";
+import { MoveLeft, MoveRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { useCounterStore } from "@/providers/counter-store-provider";
@@ -16,13 +17,21 @@ const ContentFooter = () => {
         }`}
       >
         {steps > 0 && (
-          <Button variant="secondary" onClick={() => decrementSteps()}>
-            Atras
+          <Button
+            className="gap-2 uppercase"
+            variant="secondary"
+            onClick={() => decrementSteps()}
+          >
+            <MoveLeft /> Atras
           </Button>
         )}
 
-        <Button variant="secondary" onClick={() => incrementSteps()}>
-          Siguiente
+        <Button
+          className="gap-2 uppercase"
+          variant="secondary"
+          onClick={() => incrementSteps()}
+        >
+          Siguiente <MoveRight />
         </Button>
       </div>
     </>

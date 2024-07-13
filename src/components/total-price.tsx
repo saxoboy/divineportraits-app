@@ -7,7 +7,7 @@ const TotalPrice = ({ slug }: InfoSessionProps) => {
   const sessionList = dataSession;
   const session = sessionList.find((session) => session.slug === slug);
 
-  const { count, album, totalPricePhotos, frame, props } =
+  const { count, album, totalPricePhotos, frame, props, scenarios, locations } =
     useCounterStore((state) => state);
 
   const totalPropsPrice = props.reduce((acc, prop) => acc + prop.price, 0);
@@ -17,10 +17,12 @@ const TotalPrice = ({ slug }: InfoSessionProps) => {
     totalPricePhotos +
     album.price +
     frame.price +
-    totalPropsPrice;
+    totalPropsPrice +
+    locations.price +
+    scenarios.price[0].price;
 
   return (
-    <div className="w-2/6 bg-slate-100 sticky top-8 p-4 rounded-lg">
+    <div className="w-full lg:w-2/6 bg-slate-100 sticky top-8 p-4 rounded-lg">
       <h1 className="text-2xl mb-4">
         Su cotizacion para su {session?.title} Custom es:
       </h1>
@@ -72,7 +74,18 @@ const TotalPrice = ({ slug }: InfoSessionProps) => {
           )}
         </>
       )}
-
+      {scenarios && scenarios.price[0].price !== 0 && (
+        <div className="flex justify-between gap-2 font-semibold">
+          <div>{scenarios.title}</div>
+          <div>${scenarios.price[0].price}</div>
+        </div>
+      )}
+      {locations && locations.price !== 0 && (
+        <div className="flex justify-between gap-2 font-semibold">
+          <div>{locations.title}</div>
+          <div>${locations.price}</div>
+        </div>
+      )}
       <div className="flex justify-between gap-2 text-lg font-bold mt-12">
         <div>Total</div>
         <div>${totalPrice}</div>
