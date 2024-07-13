@@ -67,7 +67,7 @@ const FormLocationSpecials = () => {
             </p>
             <div className="flex justify-center">
               <Button
-                className={`my-4 ${
+                className={`my-4 hover:text-black ${
                   selectedLocation === location.id
                     ? "bg-green-500 text-white"
                     : "bg-gray-200"
