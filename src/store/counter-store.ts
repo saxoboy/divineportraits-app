@@ -1,5 +1,10 @@
 import { createStore } from "zustand/vanilla";
-import { AlbumData, CuadrosData } from "@/data/mini-session-data";
+import {
+  AlbumData,
+  CuadrosData,
+  PropsSpecials,
+  ScenariosData,
+} from "@/data/mini-session-data";
 
 export type CounterState = {
   steps: number;
@@ -7,6 +12,8 @@ export type CounterState = {
   totalPricePhotos: number;
   album: AlbumData;
   frame: CuadrosData;
+  props: PropsSpecials[];
+  scenarios: ScenariosData;
 };
 
 export type CounterActions = {
@@ -17,6 +24,9 @@ export type CounterActions = {
   updateTotalPricePhotos: (price: number) => void;
   selectAlbum: (album: AlbumData) => void;
   selectFrame: (frame: CuadrosData) => void;
+  addProp: (props: PropsSpecials) => void;
+  removeProp: (props: PropsSpecials) => void;
+  selectScenario: (scenario: ScenariosData) => void;
 };
 
 export type CounterStore = CounterState & CounterActions;
@@ -30,11 +40,24 @@ export const defaultInitState: CounterState = {
     title: "",
     description: "",
     price: 0,
+    available: [],
   },
   frame: {
     id: 0,
     title: "",
     price: 0,
+  },
+  props: [],
+  scenarios: {
+    id: 0,
+    title: "",
+    price: [
+      {
+        price: 0,
+        description: "",
+      },
+    ],
+    available: [],
   },
 };
 
@@ -45,6 +68,8 @@ export const initCounterStore = (): CounterState => {
     totalPricePhotos: defaultInitState.totalPricePhotos,
     album: defaultInitState.album,
     frame: defaultInitState.frame,
+    props: defaultInitState.props,
+    scenarios: defaultInitState.scenarios,
   };
 };
 
@@ -55,10 +80,24 @@ export const createCounterStore = (
     ...initState,
     decrementSteps: () => set((state) => ({ steps: state.steps - 1 })),
     incrementSteps: () => set((state) => ({ steps: state.steps + 1 })),
-    decrementCount: () => set((state) => ({ count: Math.max(state.count - 1, 3) })),
+    decrementCount: () =>
+      set((state) => ({ count: Math.max(state.count - 1, 3) })),
     incrementCount: () => set((state) => ({ count: state.count + 1 })),
-    updateTotalPricePhotos: (price: number) => set((state) => ({ totalPricePhotos: price })),
+    updateTotalPricePhotos: (price: number) =>
+      set((state) => ({ totalPricePhotos: price })),
     selectAlbum: (album: AlbumData) => set((state) => ({ album: album })),
     selectFrame: (frame: CuadrosData) => set((state) => ({ frame: frame })),
+    addProp: (newProp: PropsSpecials) =>
+      set((state) => ({
+        props: state.props.includes(newProp)
+          ? state.props
+          : [...state.props, newProp],
+      })),
+    removeProp: (propToRemove: PropsSpecials) =>
+      set((state) => ({
+        props: state.props.filter((prop) => prop.id !== propToRemove.id),
+      })),
+    selectScenario: (scenario: ScenariosData) =>
+      set((state) => ({ scenarios: scenario })),
   }));
 };

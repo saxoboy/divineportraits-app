@@ -1,42 +1,66 @@
-import { AlbumData, albumData } from "@/data/mini-session-data";
+import {
+  AlbumData,
+  albumData,
+  InfoSessionProps,
+} from "@/data/mini-session-data";
+import { defaultInitState } from "@/store/counter-store";
 import { useCounterStore } from "@/providers/counter-store-provider";
 import { Button } from "./ui/button";
-import { defaultInitState } from "@/store/counter-store";
+import { toast } from "./ui/use-toast";
 
-const FormsAlbumsDigital = () => {
+const FormsAlbumsDigital = ({ slug }: InfoSessionProps) => {
   const { count, album, selectAlbum, incrementSteps } = useCounterStore(
     (state) => state
   );
   const albumList = albumData;
 
+  //Seleccionar albumes que available contenga el slug
+  const albumAviableList = albumList.filter((album) =>
+    album.available.includes(slug)
+  );
+
   const handleSelectAlbum = (album: AlbumData) => {
-    selectAlbum(album);
+    if (albumAviableList && albumAviableList.length > 0) {
+      if (count >= 15) {
+        selectAlbum(album);
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Te faltan fotos",
+          description:
+            "Solo puedes seleccionar un album si tienes 15 fotos o mas",
+        });
+      }
+    } else {
+      toast({
+        variant: "destructive",
+        title: "Album no disponible",
+        description: "Este album no esta disponible para esta sesion",
+      });
+    }
   };
 
   return (
     <div>
       <h1 className="text-2xl mb-4">Albums Digitales</h1>
-      <p className="mb-4">Selecciona el album que deseas</p>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 my-8">
+      <p className="mb-4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam excepturi
+        asperiores ratione, laborum facere laudantium dolore expedita eum
+        inventore doloribus quibusdam id dignissimos voluptates neque,
+        necessitatibus totam ad rem reiciendis.
+      </p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 my-8">
         {albumList.map((albumn) => (
           <div
             key={albumn.id}
-            className={`w-80 h-80 flex flex-col justify-center items-center shadow-md rounded-lg text-white text-2xl hover:bg-slate-400 p-4 text-center ${
+            className={`w-72 h-72 xl:w-64 xl:h-64 flex flex-col justify-center items-center shadow-md rounded-lg text-white text-2xl hover:bg-slate-400 p-4 text-center ${
               albumn.title === album.title
                 ? "bg-slate-400 border-2 border-slate-950"
                 : "bg-slate-700"
             }
             ${count >= 15 ? "cursor-pointer" : "cursor-not-allowed"}
             `}
-            onClick={() => {
-              if (count >= 15) {
-                handleSelectAlbum(albumn);
-              } else {
-                alert(
-                  "Solo puedes seleccionar un album si tienes 15 fotos o mas"
-                );
-              }
-            }}
+            onClick={() => handleSelectAlbum(albumn)}
           >
             {albumn.title}
             {albumn.price && (
@@ -48,12 +72,12 @@ const FormsAlbumsDigital = () => {
           </div>
         ))}
         <div
-          className="w-80 h-80 flex flex-col justify-center items-center bg-slate-700 shadow-md rounded-lg text-white text-2xl hover:bg-slate-400 p-4 cursor-pointer text-center"
+          className="w-72 h-72 xl:w-64 xl:h-64 flex flex-col justify-center items-center bg-slate-700 shadow-md rounded-lg text-white text-xl hover:bg-slate-400 p-4 cursor-pointer text-center"
           onClick={() => selectAlbum(defaultInitState.album)}
         >
-          <p className="mb-4">No deseo album</p>
+          <p className="mb-4 text-base">No deseo album</p>
           <Button variant="secondary" onClick={() => incrementSteps()}>
-            Siguiente Paso
+            Saltar este paso
           </Button>
         </div>
       </div>

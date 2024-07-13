@@ -9,12 +9,8 @@ interface InfoSessionProps {
 }
 
 const FormPhotos = ({ slug }: InfoSessionProps) => {
-  const {
-    count,    
-    incrementCount,
-    decrementCount,
-    updateTotalPricePhotos,
-  } = useCounterStore((state) => state);
+  const { count, incrementCount, decrementCount, updateTotalPricePhotos } =
+    useCounterStore((state) => state);
 
   const sessionList = dataSession;
   const session = sessionList.find((session) => session.slug === slug);
@@ -35,16 +31,19 @@ const FormPhotos = ({ slug }: InfoSessionProps) => {
 
   return (
     <>
-      <h2 className="text-xl my-4">Cuantas Fotos Deseas?</h2>
-      <div className="flex items-center flex-col lg:flex-row my-4 gap-8">
-        <div className="w-full lg:w-1/2">
-          <p className="mb-4">
-            Fotos que usted eligirá de la galeria y que seran retocados
-            exquisitamente para entregarle por descarga digital para su uso e
-            impresiones personales.
-          </p>
-        </div>
-        <div className="w-full lg:w-1/2 max-w-44">
+      <h2 className="text-2xl font-semibold my-4">Cuantas fotos deseas?</h2>
+      <div className="flex flex-col my-4 gap-4">
+        <p>
+          Fotos que usted eligirá de la galeria y que seran retocados
+          exquisitamente para entregarle por descarga digital para su uso e
+          impresiones personales.
+        </p>
+        <p>
+          El costo por foto es de ${session?.priceByPhoto}, si contrata{" "}
+          {session?.priceDiscountIfMoreThan} o más, el precio es de{" "}
+          {session?.priceByPhotoIfMoreThan}
+        </p>
+        <div className="mx-auto max-w-44 my-8">
           <div className="flex flex-col">
             <div className="flex justify-between items-center">
               <Button

@@ -11,7 +11,10 @@ const InfoSession = ({ slug }: InfoSessionProps) => {
     <>
       <h1 className="text-2xl mb-4">{session?.title}</h1>
       <p className="mb-4">
-        Tiempo: <strong>{session?.time}</strong>
+        Tiempo: <strong>{session?.time} minutos</strong>
+      </p>
+      <p className="mb-4">
+        Costo de la session: <strong>${session?.price}</strong>
       </p>
       <div
         className="mb-4 text-description"
