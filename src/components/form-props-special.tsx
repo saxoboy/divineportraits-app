@@ -9,7 +9,6 @@ import { Switch } from "./ui/switch";
 import { toast } from "./ui/use-toast";
 import { Label } from "./ui/label";
 import { Button } from "./ui/button";
-import { defaultInitState } from "@/store/counter-store";
 
 const FormPropsSpecials = ({ slug }: InfoSessionProps) => {
   const { props, addProp, removeProp, incrementSteps } = useCounterStore(
@@ -59,7 +58,7 @@ const FormPropsSpecials = ({ slug }: InfoSessionProps) => {
           return (
             <div
               key={propsData.id}
-              className="flex flex-col items-center justify-between p-4 bg-gray-100 rounded-lg"
+              className="flex flex-col items-center justify-between p-4 bg-slate-100 rounded-lg"
             >
               <div className="flex items-center justify-center gap-4 mb-4">
                 <div className="w-4/6">
@@ -69,7 +68,7 @@ const FormPropsSpecials = ({ slug }: InfoSessionProps) => {
                       alt={propsData.title}
                       width={300}
                       height={100}
-                      className="rounded-lg"
+                      className="rounded-lg w-auto h-auto"
                     />
                   )}
                 </div>

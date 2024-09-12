@@ -59,7 +59,8 @@ const FormsAlbumsDigital = ({ slug }: InfoSessionProps) => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam excepturi
         asperiores ratione, laborum facere laudantium dolore expedita eum
         inventore doloribus quibusdam id dignissimos voluptates neque,
-        necessitatibus totam ad rem reiciendis.
+        necessitatibus totam ad rem reiciendis. Recuerda que solo puedes
+        seleccionar un album si tienes <strong>15</strong> fotos o mas
       </p>
       <div className="flex justify-end">
         <Button variant="secondary" onClick={() => incrementSteps()}>

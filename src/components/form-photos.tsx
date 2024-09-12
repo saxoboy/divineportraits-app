@@ -39,21 +39,21 @@ const FormPhotos = ({ slug }: InfoSessionProps) => {
           alt={session!.title}
           width={250}
           height={250}
-          className="mx-auto rounded-lg mb-4"
+          className="mx-auto rounded-lg mb-4 w-auto h-auto"
         />
         <Image
           src="/images/photos/©PatriciaCarrozzini-381.jpg"
           alt={session!.title}
           width={250}
           height={250}
-          className="mx-auto rounded-lg mb-4"
+          className="mx-auto rounded-lg mb-4 w-auto h-auto"
         />
         <Image
           src="/images/photos/©PatriciaCarrozzini-390.jpg"
           alt={session!.title}
           width={250}
           height={250}
-          className="mx-auto rounded-lg mb-4"
+          className="mx-auto rounded-lg mb-4 w-auto h-auto"
         />
       </div>
       <div className="flex flex-col my-4 gap-4">
@@ -64,8 +64,8 @@ const FormPhotos = ({ slug }: InfoSessionProps) => {
         </p>
         <p>
           El costo por foto es de <strong>${session?.priceByPhoto}</strong>, si
-          contrata <strong>{session?.priceDiscountIfMoreThan}</strong> o más, el
-          precio es de <strong>{session?.priceByPhotoIfMoreThan}</strong>
+          contrata <strong>{session?.priceDiscountIfMoreThan}</strong> fotos o más, el
+          precio es de <strong>${session?.priceByPhotoIfMoreThan}</strong>
         </p>
         <div className="mx-auto my-8">
           <div className="flex flex-col">

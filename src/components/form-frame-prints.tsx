@@ -31,7 +31,7 @@ const FormFramePrints = () => {
             key={frameselect.id}
             className={`w-72 h-72 xl:w-64 xl:h-64 flex flex-col justify-center items-center shadow-md rounded-lg text-white text-2xl hover:bg-slate-400 p-4 text-center cursor-pointer ${
               frameselect.title === frame.title
-                ? "bg-slate-400 border-2 border-slate-950"
+                ? "bg-slate-400"
                 : "bg-slate-700"
             }
               `}

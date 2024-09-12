@@ -10,7 +10,6 @@ const ContentFooter = () => {
   );
   return (
     <>
-      <Separator />
       <div
         className={`flex items-center space-x-8 mt-4 ${
           steps === 0 ? "justify-end" : "justify-evenly"

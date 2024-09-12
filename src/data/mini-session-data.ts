@@ -73,11 +73,14 @@ export interface LocationSpecials {
 export interface VestuariosData {
   id: number;
   title: string;
-  description?: string;
-  price: {
-    estudio: number;
-    exteriores?: number;
+  image: {
+    src: string;
+    alt: string;
   };
+  description?: string;
+  price: number;
+  priceExterior?: number | null;
+  isPriceExterior?: boolean;
   available: string[];
 }
 
@@ -205,7 +208,7 @@ export const propsSpecials: PropsSpecials[] = [
     id: 1,
     title: "Ballon Bouquete #15 o #16",
     image: {
-      src: "/images/props/prop-test.jpg",
+      src: "/images/props/BalloonBouquete.jpg",
       alt: "Ballon Bouquete",
     },
     price: 250,
@@ -215,7 +218,7 @@ export const propsSpecials: PropsSpecials[] = [
     id: 2,
     title: "Alas de Fairy",
     image: {
-      src: "/images/props/prop-test.jpg",
+      src: "/images/props/AlasFairy.jpg",
       alt: "Ballon Bouquete",
     },
     price: 50,
@@ -225,7 +228,7 @@ export const propsSpecials: PropsSpecials[] = [
     id: 3,
     title: "Alas de Angel de Foam",
     image: {
-      src: "/images/props/prop-test.jpg",
+      src: "/images/props/AlasFoam.jpg",
       alt: "Ballon Bouquete",
     },
     price: 100,
@@ -235,7 +238,7 @@ export const propsSpecials: PropsSpecials[] = [
     id: 4,
     title: "Alas de Angel de Plumas de Avestruz",
     image: {
-      src: "/images/props/prop-test.jpg",
+      src: "/images/props/AlasPlumasAvestruz.jpg",
       alt: "Ballon Bouquete",
     },
     price: 150,
@@ -245,7 +248,7 @@ export const propsSpecials: PropsSpecials[] = [
     id: 5,
     title: "Columpio de Flores",
     image: {
-      src: "/images/props/prop-test.jpg",
+      src: "/images/props/ColumpioFloral.jpg",
       alt: "Ballon Bouquete",
     },
     price: 200,
@@ -255,7 +258,7 @@ export const propsSpecials: PropsSpecials[] = [
     id: 6,
     title: "Comoda floral o Mueble con flores",
     image: {
-      src: "/images/props/prop-test.jpg",
+      src: "/images/props/ComodaFloral.jpg",
       alt: "Ballon Bouquete",
     },
     price: 200,
@@ -265,7 +268,7 @@ export const propsSpecials: PropsSpecials[] = [
     id: 7,
     title: "Bote Floral",
     image: {
-      src: "/images/props/prop-test.jpg",
+      src: "/images/props/BoteFloralLago.jpg",
       alt: "Ballon Bouquete",
     },
     price: 400,
@@ -275,7 +278,7 @@ export const propsSpecials: PropsSpecials[] = [
     id: 8,
     title: "Barbie Box Small",
     image: {
-      src: "/images/props/prop-test.jpg",
+      src: "/images/props/BarbieBox.jpg",
       alt: "Ballon Bouquete",
     },
     price: 200,
@@ -285,7 +288,7 @@ export const propsSpecials: PropsSpecials[] = [
     id: 9,
     title: "Barbie Box Big",
     image: {
-      src: "/images/props/prop-test.jpg",
+      src: "/images/props/BraztBox.jpg",
       alt: "Ballon Bouquete",
     },
     price: 400,
@@ -298,7 +301,7 @@ export const scenariosData: ScenariosData[] = [
     id: 1,
     title: "Bridgerton or Marie Antoinette Style",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/scenarios/EscenarioBridgerton.jpg",
       alt: "Bridgerton or Marie Antoinette Style",
     },
     price: [
@@ -314,7 +317,7 @@ export const scenariosData: ScenariosData[] = [
     id: 2,
     title: "Beauty and the Beat Theme Studio",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/scenarios/EscenarioBeautyBeast.jpg",
       alt: "Bridgerton or Marie Antoinette Style",
     },
     price: [
@@ -335,7 +338,7 @@ export const scenariosData: ScenariosData[] = [
     id: 3,
     title: "Rapunzel Theme Studio",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/scenarios/EscenarioRapunzel.jpg",
       alt: "Bridgerton or Marie Antoinette Style",
     },
     price: [
@@ -356,7 +359,7 @@ export const scenariosData: ScenariosData[] = [
     id: 4,
     title: "The Princess and The Frog Studio",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/scenarios/EscenarioPrincesaSapo.jpg",
       alt: "Bridgerton or Marie Antoinette Style",
     },
     price: [
@@ -377,7 +380,7 @@ export const scenariosData: ScenariosData[] = [
     id: 5,
     title: "Enchanted Forest",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/scenarios/EscenarioFairy.jpg",
       alt: "Bridgerton or Marie Antoinette Style",
     },
     price: [
@@ -420,7 +423,7 @@ export const locationSpecials: LocationSpecials[] = [
     id: 1,
     title: "Kips Castle Park",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/locations/LocacionKipsCastle.jpg",
       alt: "Kips Castle Park",
     },
     price: 350,
@@ -430,7 +433,7 @@ export const locationSpecials: LocationSpecials[] = [
     id: 2,
     title: "Skyland Manor & NJ Botanical Garden",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/locations/LocacionSkylandManor.jpg",
       alt: "Kips Castle Park",
     },
     price: 650,
@@ -440,7 +443,7 @@ export const locationSpecials: LocationSpecials[] = [
     id: 3,
     title: "Rapunzel Tower",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/locations/LocacionTorreRapunzel.jpg",
       alt: "Kips Castle Park",
     },
     price: 350,
@@ -450,7 +453,7 @@ export const locationSpecials: LocationSpecials[] = [
     id: 4,
     title: "The Princess and The Frog",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/locations/prop-test.jpg",
       alt: "Kips Castle Park",
     },
     price: 350,
@@ -460,7 +463,7 @@ export const locationSpecials: LocationSpecials[] = [
     id: 5,
     title: "Farm and Lake (Included Horse Rental)",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/locations/LocacionFarmLakeHorse.jpg",
       alt: "Kips Castle Park",
     },
     price: 750,
@@ -470,7 +473,7 @@ export const locationSpecials: LocationSpecials[] = [
     id: 6,
     title: "Hamilton Garden",
     image: {
-      src: "/images/scenarios/prop-test.jpg",
+      src: "/images/locations/LocacionHamiltonGarden.jpg",
       alt: "Kips Castle Park",
     },
     price: 350,
@@ -482,43 +485,57 @@ export const vestuariosData: VestuariosData[] = [
   {
     id: 1,
     title: "Vestidos de Quinceañera",
-    description: "Incluye, crinolina, corona y joyeria",
-    price: {
-      estudio: 500,
-      exteriores: 650,
+    image: {
+      src: "/images/vestuarios/prop-test.jpg",
+      alt: "Vestidos de Quinceañera",
     },
+    description: "Incluye, crinolina, corona y joyeria",
+    price: 500,
+    priceExterior: 650,
     available: ["full-session", "location-session"],
   },
   {
     id: 2,
     title: "Disfraces Varios, Fairies, Princesas Sencillos",
-    price: {
-      estudio: 100,
+    image: {
+      src: "/images/vestuarios/prop-test.jpg",
+      alt: "Disfraces Varios, Fairies, Princesas Sencillos",
     },
+    price: 100,
+    priceExterior: null,
     available: ["full-session", "location-session"],
   },
   {
     id: 3,
     title: "Disfraces Grandes Princesas",
-    price: {
-      estudio: 350,
+    image: {
+      src: "/images/vestuarios/prop-test.jpg",
+      alt: "Disfraces Grandes Princesas",
     },
-    available: ["full-session", "location-session"],
-  },
-  {
-    id: 3,
-    title: "Disfraz de la Bestia o Principes",
-    price: {
-      estudio: 150,
-    },
+    price: 350,
+    priceExterior: null,
     available: ["full-session", "location-session"],
   },
   {
     id: 4,
-    title: "Flying Dresses",
-    price: {
-      estudio: 120,
+    title: "Disfraz de la Bestia o Principes",
+    image: {
+      src: "/images/vestuarios/prop-test.jpg",
+      alt: "Disfraz de la Bestia o Principes",
     },
+    price: 150,
+    priceExterior: null,
+    available: ["full-session", "location-session"],
+  },
+  {
+    id: 5,
+    title: "Flying Dresses",
+    image: {
+      src: "/images/vestuarios/prop-test.jpg",
+      alt: "Flying Dresses",
+    },
+    price: 120,
+    priceExterior: null,
     available: ["full-session", "location-session"],
   },
 ];

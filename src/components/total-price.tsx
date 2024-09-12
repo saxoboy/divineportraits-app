@@ -7,10 +7,27 @@ const TotalPrice = ({ slug }: InfoSessionProps) => {
   const sessionList = dataSession;
   const session = sessionList.find((session) => session.slug === slug);
 
-  const { count, album, totalPricePhotos, frame, props, scenarios, locations } =
-    useCounterStore((state) => state);
+  const {
+    count,
+    album,
+    totalPricePhotos,
+    frame,
+    props,
+    scenarios,
+    locations,
+    dressRental,
+  } = useCounterStore((state) => state);
 
   const totalPropsPrice = props.reduce((acc, prop) => acc + prop.price, 0);
+  const totalDressRentalPrice = dressRental
+    .map((dress) => dress.price)
+    .map((price) => price);
+  //console.log(totalDressRentalPrice);
+  dressRental.forEach((dress) => {
+    totalDressRentalPrice.push(dress.price);
+  });
+
+  console.log(dressRental);
 
   const totalPrice =
     session!.price +
