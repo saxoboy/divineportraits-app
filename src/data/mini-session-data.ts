@@ -79,7 +79,6 @@ export interface VestuariosData {
   };
   description?: string;
   price: number;
-  priceExterior?: number | null;
   isPriceExterior?: boolean;
   available: string[];
 }
@@ -489,9 +488,8 @@ export const vestuariosData: VestuariosData[] = [
       src: "/images/vestuarios/prop-test.jpg",
       alt: "Vestidos de Quinceañera",
     },
-    description: "Incluye, crinolina, corona y joyeria",
+    description: "Incluye, crinolina, corona y joyeria. Si la renta es exteriores se cobra un cargo adicional de $150",
     price: 500,
-    priceExterior: 650,
     available: ["full-session", "location-session"],
   },
   {
@@ -502,7 +500,6 @@ export const vestuariosData: VestuariosData[] = [
       alt: "Disfraces Varios, Fairies, Princesas Sencillos",
     },
     price: 100,
-    priceExterior: null,
     available: ["full-session", "location-session"],
   },
   {
@@ -513,7 +510,6 @@ export const vestuariosData: VestuariosData[] = [
       alt: "Disfraces Grandes Princesas",
     },
     price: 350,
-    priceExterior: null,
     available: ["full-session", "location-session"],
   },
   {
@@ -524,7 +520,6 @@ export const vestuariosData: VestuariosData[] = [
       alt: "Disfraz de la Bestia o Principes",
     },
     price: 150,
-    priceExterior: null,
     available: ["full-session", "location-session"],
   },
   {
@@ -535,7 +530,6 @@ export const vestuariosData: VestuariosData[] = [
       alt: "Flying Dresses",
     },
     price: 120,
-    priceExterior: null,
     available: ["full-session", "location-session"],
   },
 ];
