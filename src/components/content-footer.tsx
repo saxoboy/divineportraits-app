@@ -1,17 +1,17 @@
 "use client";
-import { MoveLeft, MoveRight } from "lucide-react";
-import { Button } from "./ui/button";
-import { Separator } from "./ui/separator";
+import { MoveLeft, MoveRight, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useCounterStore } from "@/providers/counter-store-provider";
 
 const ContentFooter = () => {
   const { steps, incrementSteps, decrementSteps } = useCounterStore(
     (state) => state
   );
+
   return (
     <>
       <div
-        className={`flex items-center space-x-8 mt-4 ${
+        className={`flex items-center space-x-8 my-4 ${
           steps === 0 ? "justify-end" : "justify-evenly"
         }`}
       >
@@ -30,7 +30,15 @@ const ContentFooter = () => {
           variant="secondary"
           onClick={() => incrementSteps()}
         >
-          Siguiente <MoveRight />
+          {steps === 8 ? (
+            <>
+              Finalizar <CheckCircle />
+            </>
+          ) : (
+            <>
+              Siguiente <MoveRight />
+            </>
+          )}
         </Button>
       </div>
     </>

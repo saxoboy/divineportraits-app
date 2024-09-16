@@ -11,7 +11,7 @@ interface SessionPageProps {
 const SessionBySlug: FC<SessionPageProps> = ({ params }) => {
   const { slug } = params;
   return (
-    <section className="flex flex-col-reverse lg:flex-row justify-start items-start gap-8 py-8 container">
+    <section className="flex flex-col lg:flex-row justify-start items-start gap-4 container py-4">
       <ContentSteps slug={slug} />
       <TotalPrice slug={slug} />
     </section>

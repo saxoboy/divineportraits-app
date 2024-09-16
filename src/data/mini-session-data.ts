@@ -42,6 +42,10 @@ export interface PropsSpecials {
 export interface ServicesAdicional {
   id: number;
   title: string;
+  image: {
+    src: string;
+    alt: string;
+  };
   description: string;
   price: number;
   avaible: string[];
@@ -402,6 +406,10 @@ export const servicesAdicional: ServicesAdicional[] = [
   {
     id: 1,
     title: "Maquillaje y Peinado dentro de Estudio",
+    image: {
+      src: "/images/services/prop-test.jpg",
+      alt: "Maquillaje y Peinado",
+    },
     description:
       "El estudio se cierra por dos horas para su preparación. El maquillaje sera SoftGlam y el peinado sera de Rizos Suaves (Debe traer el cabello limpio y seco, con extensiones puestas si las desea usar)",
     price: 500,
@@ -409,9 +417,13 @@ export const servicesAdicional: ServicesAdicional[] = [
   },
   {
     id: 2,
-    title: "BEHIND THE SCENES OR THEMATIC VIDEO",
+    title: "Behind the Scenes or Thematic Video",
+    image: {
+      src: "/images/services/prop-test.jpg",
+      alt: "Behind the Scenes or Thematic Video",
+    },
     description:
-      "With a duration of 60 seconds or more (depending on the material captured)",
+      "Con una duración de 60 segundos o más (dependiendo del material capturado)",
     price: 1200,
     avaible: ["location-session"],
   },
@@ -488,7 +500,8 @@ export const vestuariosData: VestuariosData[] = [
       src: "/images/vestuarios/quincedress.jpg",
       alt: "Vestidos de Quinceañera",
     },
-    description: "Incluye, crinolina, corona y joyeria. Si la renta es exteriores se cobra un cargo adicional de $150",
+    description:
+      "Incluye, crinolina, corona y joyeria. Si la renta es exteriores se cobra un cargo adicional de $150",
     price: 500,
     available: ["full-session", "location-session"],
   },

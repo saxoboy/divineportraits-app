@@ -59,15 +59,15 @@ const FormsAlbumsDigital = ({ slug }: InfoSessionProps) => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam excepturi
         asperiores ratione, laborum facere laudantium dolore expedita eum
         inventore doloribus quibusdam id dignissimos voluptates neque,
-        necessitatibus totam ad rem reiciendis. Recuerda que solo puedes
-        seleccionar un album si tienes <strong>15</strong> fotos o mas
+        necessitatibus totam ad rem reiciendis. <br /> Recuerda que solo puedes
+        seleccionar un album si tienes <strong>15</strong> fotos o màs
       </p>
       <div className="flex justify-end">
         <Button variant="secondary" onClick={() => incrementSteps()}>
           Saltar este paso
         </Button>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 my-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 my-8">
         {albumList.map((albumn) => (
           <div
             key={albumn.id}

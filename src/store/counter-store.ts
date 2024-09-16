@@ -5,6 +5,7 @@ import {
   LocationSpecials,
   PropsSpecials,
   ScenariosData,
+  ServicesAdicional,
   VestuariosData,
 } from "@/data/mini-session-data";
 
@@ -18,6 +19,7 @@ export type CounterState = {
   scenarios: ScenariosData;
   locations: LocationSpecials;
   dressRental: VestuariosData[];
+  serviciosAdicionales: ServicesAdicional[];
 };
 
 export type CounterActions = {
@@ -34,6 +36,8 @@ export type CounterActions = {
   selectLocation: (location: LocationSpecials) => void;
   addDressRental: (dress: VestuariosData) => void;
   removeDressRental: (dress: VestuariosData) => void;
+  addServicioAdicional: (servicio: ServicesAdicional) => void;
+  removeServicioAdicional: (servicio: ServicesAdicional) => void;
 };
 
 export type CounterStore = CounterState & CounterActions;
@@ -78,6 +82,7 @@ export const defaultInitState: CounterState = {
     available: [],
   },
   dressRental: [],
+  serviciosAdicionales: [],
 };
 
 export const initCounterStore = (): CounterState => {
@@ -91,6 +96,7 @@ export const initCounterStore = (): CounterState => {
     scenarios: defaultInitState.scenarios,
     locations: defaultInitState.locations,
     dressRental: defaultInitState.dressRental,
+    serviciosAdicionales: defaultInitState.serviciosAdicionales,
   };
 };
 
@@ -101,9 +107,11 @@ export const createCounterStore = (
     ...initState,
     decrementSteps: () => set((state) => ({ steps: state.steps - 1 })),
     incrementSteps: () => set((state) => ({ steps: state.steps + 1 })),
-    decrementCount: () => set((state) => ({ count: Math.max(state.count - 1, 3) })),
+    decrementCount: () =>
+      set((state) => ({ count: Math.max(state.count - 1, 3) })),
     incrementCount: () => set((state) => ({ count: state.count + 1 })),
-    updateTotalPricePhotos: (price: number) => set((state) => ({ totalPricePhotos: price })),
+    updateTotalPricePhotos: (price: number) =>
+      set((state) => ({ totalPricePhotos: price })),
     selectAlbum: (album: AlbumData) => set((state) => ({ album: album })),
     selectFrame: (frame: CuadrosData) => set((state) => ({ frame: frame })),
     addProp: (newProp: PropsSpecials) =>
@@ -116,8 +124,10 @@ export const createCounterStore = (
       set((state) => ({
         props: state.props.filter((prop) => prop.id !== propToRemove.id),
       })),
-    selectScenario: (scenario: ScenariosData) => set((state) => ({ scenarios: scenario })),
-    selectLocation: (location: LocationSpecials) => set((state) => ({ locations: location })),
+    selectScenario: (scenario: ScenariosData) =>
+      set((state) => ({ scenarios: scenario })),
+    selectLocation: (location: LocationSpecials) =>
+      set((state) => ({ locations: location })),
     addDressRental: (dress: VestuariosData) => {
       set((state) => ({
         dressRental: state.dressRental.includes(dress)
@@ -129,6 +139,19 @@ export const createCounterStore = (
       set((state) => ({
         dressRental: state.dressRental.filter(
           (dressRental) => dressRental.id !== dress.id
+        ),
+      })),
+    addServicioAdicional: (servicio: ServicesAdicional) => {
+      set((state) => ({
+        serviciosAdicionales: state.serviciosAdicionales.includes(servicio)
+          ? state.serviciosAdicionales
+          : [...state.serviciosAdicionales, servicio],
+      }));
+    },
+    removeServicioAdicional: (servicio: ServicesAdicional) =>
+      set((state) => ({
+        serviciosAdicionales: state.serviciosAdicionales.filter(
+          (servicioAdicional) => servicioAdicional.id !== servicio.id
         ),
       })),
   }));

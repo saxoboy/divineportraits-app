@@ -96,7 +96,7 @@ const FormPropsSpecials = ({ slug }: InfoSessionProps) => {
                 </div>
               ) : (
                 <div>
-                  <p className="text-sm">
+                  <p className="text-sm text-center mt-2 bg-slate-500 text-white w-fit mx-auto px-2 rounded">
                     Este prop no está disponible para esta sesión
                   </p>
                 </div>

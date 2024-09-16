@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { VestuariosData, vestuariosData } from "@/data/mini-session-data";
 import { useCounterStore } from "@/providers/counter-store-provider";
-import { Button } from "./ui/button";
 
 interface VestuariosProps {
   slug: string;
@@ -88,7 +88,7 @@ const FormDressRental = ({ slug }: VestuariosProps) => {
                   </Button>
                 </div>
               ) : (
-                <p className="text-center text-red-500">
+                <p className="text-sm text-center mt-2 bg-slate-500 text-white w-fit mx-auto px-2 rounded">
                   No disponible para esta sesion
                 </p>
               )}

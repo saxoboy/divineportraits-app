@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
+import SessionPage from "./session/page";
 
 export default function Home() {
   return (
@@ -12,7 +12,9 @@ export default function Home() {
             <li>Portfolio</li>
             <li>About</li>
             <li>Contact</li>
-            <li><ModeToggle /></li>
+            <li>
+              <ModeToggle />
+            </li>
           </ul>
         </nav>
       </header>
@@ -26,23 +28,7 @@ export default function Home() {
           Aqui una bienvenida a mi pagina de fotografia y lo que hago
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 my-8">
-          <Link href="/session/mini-session">
-            <div className="w-96 h-96 flex justify-center items-center bg-slate-500 shadow-md rounded-lg text-white text-2xl hover:bg-slate-400">
-              Mini Session
-            </div>
-          </Link>
-          <Link href="/session/full-session">
-            <div className="w-96 h-96 flex justify-center items-center bg-slate-500 shadow-md rounded-lg text-white text-2xl hover:bg-slate-400">
-              Full Session
-            </div>
-          </Link>
-          <Link href="/session/location-session">
-            <div className="w-96 h-96 flex justify-center items-center bg-slate-500 shadow-md rounded-lg text-white text-2xl hover:bg-slate-400">
-              Location Session
-            </div>
-          </Link>
-        </div>
+        <SessionPage />
       </main>
     </>
   );
