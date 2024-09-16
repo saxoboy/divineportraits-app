@@ -1,5 +1,6 @@
-import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
+import { ModeToggle } from "@/components/mode-toggle";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
             <li>Portfolio</li>
             <li>About</li>
             <li>Contact</li>
+            <li><ModeToggle /></li>
           </ul>
         </nav>
       </header>

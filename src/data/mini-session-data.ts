@@ -448,16 +448,16 @@ export const locationSpecials: LocationSpecials[] = [
     price: 350,
     available: ["location-session"],
   },
-  {
-    id: 4,
-    title: "The Princess and The Frog",
-    image: {
-      src: "/images/locations/prop-test.jpg",
-      alt: "Kips Castle Park",
-    },
-    price: 350,
-    available: ["location-session"],
-  },
+  // {
+  //   id: 4,
+  //   title: "The Princess and The Frog",
+  //   image: {
+  //     src: "/images/locations/prop-test.jpg",
+  //     alt: "Kips Castle Park",
+  //   },
+  //   price: 350,
+  //   available: ["location-session"],
+  // },
   {
     id: 5,
     title: "Farm and Lake (Included Horse Rental)",
@@ -485,7 +485,7 @@ export const vestuariosData: VestuariosData[] = [
     id: 1,
     title: "Vestidos de Quinceañera",
     image: {
-      src: "/images/vestuarios/prop-test.jpg",
+      src: "/images/vestuarios/quincedress.jpg",
       alt: "Vestidos de Quinceañera",
     },
     description: "Incluye, crinolina, corona y joyeria. Si la renta es exteriores se cobra un cargo adicional de $150",
@@ -496,7 +496,7 @@ export const vestuariosData: VestuariosData[] = [
     id: 2,
     title: "Disfraces Varios, Fairies, Princesas Sencillos",
     image: {
-      src: "/images/vestuarios/prop-test.jpg",
+      src: "/images/vestuarios/fairydress.jpg",
       alt: "Disfraces Varios, Fairies, Princesas Sencillos",
     },
     price: 100,
@@ -506,7 +506,7 @@ export const vestuariosData: VestuariosData[] = [
     id: 3,
     title: "Disfraces Grandes Princesas",
     image: {
-      src: "/images/vestuarios/prop-test.jpg",
+      src: "/images/vestuarios/bigcostume.jpg",
       alt: "Disfraces Grandes Princesas",
     },
     price: 350,
@@ -516,7 +516,7 @@ export const vestuariosData: VestuariosData[] = [
     id: 4,
     title: "Disfraz de la Bestia o Principes",
     image: {
-      src: "/images/vestuarios/prop-test.jpg",
+      src: "/images/vestuarios/bestia.jpg",
       alt: "Disfraz de la Bestia o Principes",
     },
     price: 150,
@@ -526,7 +526,7 @@ export const vestuariosData: VestuariosData[] = [
     id: 5,
     title: "Flying Dresses",
     image: {
-      src: "/images/vestuarios/prop-test.jpg",
+      src: "/images/vestuarios/flyngdress.jpg",
       alt: "Flying Dresses",
     },
     price: 120,
