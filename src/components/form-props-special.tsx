@@ -1,10 +1,7 @@
 import Image from "next/image";
 import { useCounterStore } from "@/providers/counter-store-provider";
-import {
-  InfoSessionProps,
-  propsSpecials,
-  PropsSpecials,
-} from "@/data/mini-session-data";
+import { InfoSessionProps, PropsSpecials } from "@/interfaces/sessionInterface";
+import { propsSpecials } from "@/data/mini-session-data";
 import { Switch } from "./ui/switch";
 import { toast } from "./ui/use-toast";
 import { Label } from "./ui/label";

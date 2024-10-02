@@ -103,12 +103,3 @@ const FormPhotos = ({ slug }: InfoSessionProps) => {
 };
 
 export default FormPhotos;
-
-// const FormSchema = z.object({
-//   photos: z
-//     .preprocess(
-//       (value) => Number(value),
-//       z.number().min(3, "Por favor seleccione al menos 3 fotos")
-//     ) // Convert the input to a number
-//     .refine((value) => !isNaN(value), "Please select the number of photos"), // Require the field to be defined
-// });

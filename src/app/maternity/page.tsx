@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 
-const SessionPage = () => {
+const MaternityPage = () => {
   return (
     <>
       <header className="container my-8">
@@ -27,19 +27,19 @@ const SessionPage = () => {
           Aqui una bienvenida a mi pagina de fotografia y lo que hago
         </p>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 my-8">
-          <Link href="/session/mini-session">
+          <Link href="/maternity/mini-session">
             <div className="w-96 h-96 flex justify-center items-center bg-slate-500 shadow-md rounded-lg text-white text-2xl hover:bg-slate-400">
-              Mini Session Quinceañeras
+              Mini Session Maternity
             </div>
           </Link>
-          <Link href="/session/full-session">
+          <Link href="/maternity/full-session">
             <div className="w-96 h-96 flex justify-center items-center bg-slate-500 shadow-md rounded-lg text-white text-2xl hover:bg-slate-400">
-              Full Session Quinceañeras
+              Full Session Maternity
             </div>
           </Link>
-          <Link href="/session/location-session">
+          <Link href="/maternity/location-session">
             <div className="w-96 h-96 flex justify-center items-center bg-slate-500 shadow-md rounded-lg text-white text-2xl hover:bg-slate-400">
-              Location Session Quinceañeras
+              Location Session Maternity
             </div>
           </Link>
         </div>
@@ -48,7 +48,4 @@ const SessionPage = () => {
   );
 };
 
-export default SessionPage;
-
-{
-}
+export default MaternityPage;

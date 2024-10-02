@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { dataSession } from "@/data/mini-session-data";
+import { dataSession } from "@/data/maternity-data";
 
 interface InfoSessionProps {
   slug: string;
 }
 
-const InfoSession = ({ slug }: InfoSessionProps) => {
+const InfoSessionMaternity = ({ slug }: InfoSessionProps) => {
   const sessionList = dataSession;
   const session = sessionList.find((session) => session.slug === slug);
   return (
@@ -46,4 +46,4 @@ const InfoSession = ({ slug }: InfoSessionProps) => {
   );
 };
 
-export default InfoSession;
+export default InfoSessionMaternity;

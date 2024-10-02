@@ -1,6 +1,6 @@
-import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
-import SessionPage from "./session/page";
+import { ModeToggle } from "@/components/mode-toggle";
+import HomeSession from "@/components/home-session";
 
 export default function Home() {
   return (
@@ -23,12 +23,10 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-center mb-8">
           Patricia Carrozini Photography
         </h1>
-
         <p className="text-center mb-8">
           Aqui una bienvenida a mi pagina de fotografia y lo que hago
         </p>
-
-        <SessionPage />
+        <HomeSession />
       </main>
     </>
   );

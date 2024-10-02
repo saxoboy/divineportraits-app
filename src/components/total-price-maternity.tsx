@@ -5,7 +5,7 @@ import { useCounterStore } from "@/providers/counter-store-provider";
 import ContentFooter from "./content-footer";
 import { InfoSessionProps } from "@/interfaces/sessionInterface";
 
-const TotalPrice = ({ slug }: InfoSessionProps) => {
+const TotalPriceMaternity = ({ slug }: InfoSessionProps) => {
   const sessionList = dataSession;
   const session = sessionList.find((session) => session.slug === slug);
 
@@ -147,4 +147,4 @@ const TotalPrice = ({ slug }: InfoSessionProps) => {
   );
 };
 
-export default TotalPrice;
+export default TotalPriceMaternity;
