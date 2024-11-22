@@ -10,7 +10,7 @@ const InfoSessionMaternity = ({ slug }: InfoSessionProps) => {
   const session = sessionList.find((session) => session.slug === slug);
   return (
     <>
-      <h1 className="text-4xl mb-4 text-center">{session?.title}</h1>
+      <h1 className="text-4xl mb-2 text-center">{session?.title}</h1>
       <Image
         src="/images/session/prop-test.jpg"
         alt={session?.title || ""}

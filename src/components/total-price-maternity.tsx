@@ -11,6 +11,7 @@ const TotalPriceMaternity = ({ slug }: InfoSessionProps) => {
 
   const {
     count,
+    countPerson,
     album,
     totalPricePhotos,
     frame,
@@ -40,10 +41,10 @@ const TotalPriceMaternity = ({ slug }: InfoSessionProps) => {
     totalServiceAdicionalPrice;
 
   return (
-    <div className="flex flex-col-reverse w-full lg:w-2/6 gap-4 sticky top-8">
-      <div className="hidden lg:block">
+    <div className="flex flex-col-reverse w-full lg:w-2/6 gap-4 sticky mt-12 top-8">
+      {/* <div className="hidden lg:block">
         <ContentFooter />
-      </div>
+      </div> */}
       <div className=" bg-slate-100  p-4 rounded-lg">
         <h1 className="text-2xl mb-4">
           Su cotizacion para su {session?.title} Custom es:
@@ -54,10 +55,17 @@ const TotalPriceMaternity = ({ slug }: InfoSessionProps) => {
           <div>${session?.price}</div>
         </div>
         {totalPricePhotos !== 0 && (
-          <div className="flex justify-between gap-2 font-semibold">
-            <div>{count} fotos contratadas</div>
-            <div>${totalPricePhotos}</div>
-          </div>
+          <>
+            <div className="flex justify-between gap-2 font-semibold">
+              <div>{count} fotos contratadas</div>
+              <div>${totalPricePhotos}</div>
+            </div>
+            {countPerson !== undefined && (
+              <div className="flex justify-between gap-2 font-semibold">
+                <div>{countPerson} personas adicionales</div>                
+              </div>
+            )}
+          </>
         )}
         {album && album.price !== 0 && (
           <div className="flex justify-between gap-2 font-semibold">

@@ -1,14 +1,11 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import {
-  InfoSessionProps,
-  ScenariosData,
-  scenariosData,
-} from "@/data/mini-session-data";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useCounterStore } from "@/providers/counter-store-provider";
 import { defaultInitState } from "@/store/counter-store";
+import { InfoSessionProps, ScenariosData } from "@/interfaces/sessionInterface";
+import { scenariosData } from "@/data/mini-session-data";
 
 const FormScenarios = ({ slug }: InfoSessionProps) => {
   const { incrementSteps, selectScenario, scenarios } = useCounterStore(

@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { servicesAdicional, ServicesAdicional } from "@/data/mini-session-data";
+import { servicesAdicional } from "@/data/mini-session-data";
 import { useCounterStore } from "@/providers/counter-store-provider";
+import { ServicesAdicional } from "@/interfaces/sessionInterface";
 
 interface FromServiceAditionalProps {
   slug: string;

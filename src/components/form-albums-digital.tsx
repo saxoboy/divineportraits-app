@@ -1,11 +1,8 @@
 import { useRouter } from "next/navigation";
-import {
-  AlbumData,
-  albumData,
-  InfoSessionProps,
-} from "@/data/mini-session-data";
+import { albumData } from "@/data/mini-session-data";
 import { defaultInitState } from "@/store/counter-store";
 import { useCounterStore } from "@/providers/counter-store-provider";
+import { AlbumData, InfoSessionProps } from "@/interfaces/sessionInterface";
 import { Button } from "./ui/button";
 import { toast } from "./ui/use-toast";
 import { ToastAction } from "./ui/toast";

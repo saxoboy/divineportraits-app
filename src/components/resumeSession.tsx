@@ -3,8 +3,8 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@/components/ui/input"; // Componente de shadcn para input
-import { Button } from "@/components/ui/button"; // Componente de shadcn para button
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -12,18 +12,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"; // shadcn form components
+} from "@/components/ui/form";
+import { Separator } from "./ui/separator";
 
-// Esquema de validación con Zod
 const formSchema = z.object({
-  name: z.string().min(1, { message: "El nombre es obligatorio" }),
+  name: z.string().min(1, { message: "Name is required"}),
   email: z.string().email({ message: "Correo electrónico inválido" }),
   phone: z
     .string()
     .min(7, { message: "El teléfono debe tener al menos 7 dígitos" }),
 });
 
-// Tipado de los datos del formulario
 type FormData = z.infer<typeof formSchema>;
 
 interface ResumeSessionProps {
@@ -40,24 +39,33 @@ const ResumeSession = ({ slug }: ResumeSessionProps) => {
     },
   });
 
-  // Lógica para manejar el submit del formulario
   const onSubmit = (data: FormData) => {
     console.log("Form Data:", data);
   };
 
   return (
     <div className="p-4 bg-white rounded shadow-md">
-      <h2 className="text-lg font-semibold mb-4">Resume Session</h2>
+      <p className="pb-4">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae
+        omnis modi magni debitis, sunt mollitia nam voluptate suscipit
+        consectetur cupiditate beatae obcaecati, nihil nobis! Ratione
+        necessitatibus natus dolorem quos eum.
+      </p>
+      <Separator />
+      <h2 className="text-2xl font-semibold my-4">Resume Session</h2>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="grid grid-cols-1 gap-4"
+        >
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nombre Completos</FormLabel>
+                {/* <FormLabel>Full Name</FormLabel> */}
                 <FormControl>
-                  <Input placeholder="Nombres" {...field} />
+                  <Input placeholder="Full Name" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -70,10 +78,10 @@ const ResumeSession = ({ slug }: ResumeSessionProps) => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Correo Electronico</FormLabel>
+                {/* <FormLabel>Correo Electronico</FormLabel> */}
                 <FormControl>
                   <Input
-                    placeholder="Ingresa tu correo"
+                    placeholder="Your email"
                     type="email"
                     {...field}
                   />
@@ -89,11 +97,11 @@ const ResumeSession = ({ slug }: ResumeSessionProps) => {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Telefono</FormLabel>
+                {/* <FormLabel>Telefono</FormLabel> */}
                 <FormControl>
                   <Input
                     type="tel"
-                    placeholder="Ingresa tu teléfono"
+                    placeholder="Your phone"
                     {...field}
                   />
                 </FormControl>

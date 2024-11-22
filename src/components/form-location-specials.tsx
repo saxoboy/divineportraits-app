@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { useCounterStore } from "@/providers/counter-store-provider";
+
+import { defaultInitState } from "@/store/counter-store";
 import {
   InfoSessionProps,
   LocationSpecials,
-  locationSpecials,
-} from "../data/mini-session-data";
-import { defaultInitState } from "@/store/counter-store";
+} from "@/interfaces/sessionInterface";
+import { locationSpecials } from "@/data/mini-session-data";
 
 const FormLocationSpecials = ({ slug }: InfoSessionProps) => {
   const { incrementSteps, selectLocation, locations } = useCounterStore(

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { VestuariosData, vestuariosData } from "@/data/mini-session-data";
 import { useCounterStore } from "@/providers/counter-store-provider";
+import { VestuariosData } from "@/interfaces/sessionInterface";
+import { vestuariosData } from "@/data/mini-session-data";
 
 interface VestuariosProps {
   slug: string;
