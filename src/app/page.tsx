@@ -21,7 +21,7 @@ const MaternityPage = () => {
       <Separator />
       <main className="container my-8">
         <h1 className="text-4xl font-bold text-center mb-8">
-          Patricia Carrozini Photography
+          <Link href={"/"}>Patricia Carrozini Photography</Link>
         </h1>
         <p className="text-center mb-8">
           Aqui una bienvenida a mi pagina de fotografia y lo que hago

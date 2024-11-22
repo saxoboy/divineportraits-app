@@ -1,5 +1,6 @@
 "use client";
 import { FC } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -54,7 +55,7 @@ const ResumePage: FC<SessionPageProps> = ({ params }) => {
     <section className="flex flex-col justify-start items-center gap-4 container py-4">
       <header>
         <h1 className="text-4xl font-bold text-center my-4">
-          Patricia Carrozini Photography
+          <Link href={"/"}>Patricia Carrozini Photography</Link>
         </h1>
       </header>
       <div className="flex flex-col lg:flex-row justify-center items-center gap-4 container py-4">
