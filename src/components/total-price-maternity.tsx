@@ -45,7 +45,7 @@ const TotalPriceMaternity = ({ slug }: InfoSessionProps) => {
       {/* <div className="hidden lg:block">
         <ContentFooter />
       </div> */}
-      <div className=" bg-slate-100  p-4 rounded-lg">
+      <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
         <h1 className="text-2xl mb-4">
           Su cotizacion para su {session?.title} Custom es:
         </h1>

@@ -55,7 +55,7 @@ const FormPropsSpecials = ({ slug }: InfoSessionProps) => {
           return (
             <div
               key={propsData.id}
-              className="flex flex-col items-center justify-between p-4 bg-slate-100 rounded-lg"
+              className="flex flex-col items-center justify-between p-4 bg-slate-100 dark:bg-slate-800 rounded-lg"
             >
               <div className="flex items-center justify-center gap-4 mb-4">
                 <div className="w-4/6">
@@ -82,6 +82,7 @@ const FormPropsSpecials = ({ slug }: InfoSessionProps) => {
                 <div className="flex items-center space-x-2">
                   <Switch
                     id={propsData.title}
+                    className="dark:bg-slate-300"
                     checked={props.some((prop) => prop.id === propsData.id)}
                     onCheckedChange={() => handleSelectProps(propsData)}
                     disabled={

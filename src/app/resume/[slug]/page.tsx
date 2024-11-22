@@ -58,7 +58,7 @@ const ResumePage: FC<SessionPageProps> = ({ params }) => {
         </h1>
       </header>
       <div className="flex flex-col lg:flex-row justify-center items-center gap-4 container py-4">
-        <div className="p-4 bg-white rounded shadow-md">
+        <div className="p-4 bg-white rounded shadow-md dark:bg-slate-700">
           <h2 className="text-2xl font-semibold my-4">Resume Session</h2>
           <p className="pb-4">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae
